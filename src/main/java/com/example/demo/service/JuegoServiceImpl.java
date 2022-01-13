@@ -1,5 +1,38 @@
 package com.example.demo.service;
 
-public class JuegoServiceImpl {
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dao.JuegoDAO;
+import com.example.demo.model.Juego;
+
+@Service
+public class JuegoServiceImpl implements JuegoService{
+
+	@Autowired
+	private JuegoDAO juegoDao;
+	
+	@Override
+	public Juego save(Juego juego) {
+		juegoDao.save(juego);
+		return juego;
+	}
+
+	@Override
+	public void deleteById(int id) {
+			
+	}
+	
+	@Override
+	public Optional<Juego> findById(int id) {
+		return juegoDao.findById(id);
+	}
+	
+	@Override
+	public Optional<Juego> findByFabricante(String fabricante) {
+		return juegoDao.findByFabricante(fabricante);
+	}
 
 }
