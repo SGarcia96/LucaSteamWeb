@@ -11,4 +11,5 @@ public interface JuegoService {
 	public void deleteById(int id);
 	
 	public Optional <Juego> findById(int id);
+	public Optional <Juego> findByFabricante(String fabricante);
 }

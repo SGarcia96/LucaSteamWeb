@@ -22,14 +22,17 @@ public class JuegoServiceImpl implements JuegoService{
 
 	@Override
 	public void deleteById(int id) {
-		
-		
+			
 	}
 	
 	@Override
-	//Esto es así porque el nuevo metodo devuelve un Optional
 	public Optional<Juego> findById(int id) {
 		return juegoDao.findById(id);
+	}
+	
+	@Override
+	public Optional<Juego> findByFabricante(String fabricante) {
+		return juegoDao.findByFabricante(fabricante);
 	}
 
 }

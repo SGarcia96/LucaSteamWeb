@@ -37,8 +37,14 @@ public class JuegoController {
 	}
 	
 	@GetMapping("/edit")
-	public String editUser(@RequestParam("id") int id, Model m) {
-		m.addAttribute("user", juegoService.findById(id));
-		return "UserForm";
+	public String findById(@RequestParam("id") int id, Model m) {
+		m.addAttribute("juego", juegoService.findById(id));
+		return "form";
+	}
+	
+	@GetMapping("/list/nintendo")
+	public String findByFabricante(Model m) {
+		m.addAttribute("lista juegos", juegoService.findByFabricante("Nintendo"));
+		return "list";
 	}
 }
