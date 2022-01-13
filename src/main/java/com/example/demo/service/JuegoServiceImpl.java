@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,8 +23,17 @@ public class JuegoServiceImpl implements JuegoService{
 
 	@Override
 	public void deleteById(int id) {
-		// TODO Auto-generated method stub
-		
+			
+	}
+	
+	@Override
+	public Optional<Juego> findById(int id) {
+		return juegoDao.findById(id);
+	}
+	
+	@Override
+	public Optional<Juego> findByFabricante(String fabricante) {
+		return juegoDao.findByFabricante(fabricante);
 	}
 
 	@Override
