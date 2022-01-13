@@ -7,5 +7,6 @@ import com.example.demo.model.Juego;
 
 @Repository
 public interface JuegoDAO extends JpaRepository<Juego, Integer>{
-
+	
+	public void cargarJuegos();
 }
