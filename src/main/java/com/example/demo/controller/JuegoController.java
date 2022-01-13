@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,23 +19,27 @@ public class JuegoController {
 	
 	@Autowired
 	JuegoService juegoService;
-	
+	private static final Logger log = LoggerFactory.getLogger(JuegoController.class);
+	//lista usuarios
 	@GetMapping
 	public String showMenu(Model model) {
 		model.addAttribute("juegos", juegoService.findAll());
+		log.info("en el metodo showMenu del controller");
 		return "index";
 	}
-	
+	//nuevo juego
 	@GetMapping("/add")
 	public String add(Juego juego, Model model) {
 		model.addAttribute("juego", juego);
+		log.info("en el metodo add del controller");
 		return "form";
 	}
 	
 	@PostMapping("/save")
 	public String save(Juego juego) {
 		juegoService.save(juego);
-		return ("/redirect:/juego");
+		log.info("en el metodo save del controller");
+		return ("redirect:/juego");
 	}
 	
 	@GetMapping("/delete")
