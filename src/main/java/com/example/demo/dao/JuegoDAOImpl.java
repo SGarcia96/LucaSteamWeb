@@ -4,12 +4,19 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Juego;
 
-public class JuegoDAOImpl implements JuegoDAO{
+@Repository
+public class JuegoDAOImpl implements JuegoDaoCustom{
 
+	@PersistenceContext
+	EntityManager entityManager;
+	
 	@Override
 	public void cargarJuegos() {
 		String linea;
