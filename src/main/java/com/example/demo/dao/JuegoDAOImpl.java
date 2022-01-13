@@ -3,7 +3,6 @@ package com.example.demo.dao;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -38,7 +37,7 @@ public class JuegoDAOImpl implements JuegoDaoCustom{
 					}
 					juego.setGenero(juegoArray[3]);
 					juego.setEditor(juegoArray[4]);
-					this.darDeAlta(juego);
+					//this.darDeAlta(juego);
 
 				}
 				cont++;
@@ -47,5 +46,4 @@ public class JuegoDAOImpl implements JuegoDaoCustom{
 			e.printStackTrace();
 		}
 	}
-
 }
