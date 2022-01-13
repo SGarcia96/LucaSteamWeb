@@ -18,4 +18,10 @@ public class JuegoServiceImpl implements JuegoService{
 		return juego;
 	}
 
+	@Override
+	public void deleteById(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
