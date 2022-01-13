@@ -1,8 +1,11 @@
 package com.example.demo.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ejemplos.spring.model.User;
 import com.example.demo.dao.JuegoDAO;
 import com.example.demo.model.Juego;
 
@@ -20,8 +23,14 @@ public class JuegoServiceImpl implements JuegoService{
 
 	@Override
 	public void deleteById(int id) {
-		// TODO Auto-generated method stub
 		
+		
+	}
+	
+	@Override
+	//Esto es así porque el nuevo metodo devuelve un Optional
+	public Optional<Juego> findById(int id) {
+		return juegoDao.findById(id);
 	}
 
 }
