@@ -40,6 +40,10 @@ public class JuegoServiceImpl implements JuegoService{
 	public List<Juego> findAllByGenero(String genero) {
 		return juegoDao.findAllByGenero(genero);
 	}
+	@Override
+	public List<Juego> findAllByFecha(String fecha) {
+		return juegoDao.findAllByFecha(fecha);
+	}
 
 	@Override
 	public List<Juego> findAll() {
