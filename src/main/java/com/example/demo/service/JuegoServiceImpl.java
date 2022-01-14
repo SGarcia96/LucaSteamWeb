@@ -44,7 +44,7 @@ public class JuegoServiceImpl implements JuegoService{
 	@Override
 	public void cargarJuegos() {
 		List<Juego> juegos = juegoDao.cargarJuegos();
-		juegos.forEach(juego->juegoDao.save(juego));
+		juegos.forEach(juego->save(juego));
 	}
 
 }
