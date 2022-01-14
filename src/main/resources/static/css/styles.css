@@ -32,6 +32,10 @@ table {
   font-size: 14px;
 }
 
+tr {
+  text-align: center;
+}
+
 .buttons {
   display: flex;
   justify-content: center;

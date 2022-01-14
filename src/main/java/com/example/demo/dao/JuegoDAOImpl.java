@@ -57,7 +57,7 @@ public class JuegoDAOImpl implements JuegoDaoCustom{
 			return "The 3DO Company";
 		case "3DS", "DS", "GB", "GBA", "GC", "N64", "NES", "SNES", "WII", "WIIU":
 			return "Nintendo";
-		case "DC", "GEN", "SAT", "SCD":
+		case "DC", "GEN", "SAT", "SCD", "GG":
 			return "Sega";
 		case "PCFX", "T16":
 			return "Huson Soft";
@@ -65,6 +65,10 @@ public class JuegoDAOImpl implements JuegoDaoCustom{
 			return "Sony";
 		case "WS":
 			return "Bandai";
+		case "XB", "X360", "XOne":
+			return "Microsoft";
+		case "2600":
+			return "Atari";
 		default:
 			return "N/A";
 		}
