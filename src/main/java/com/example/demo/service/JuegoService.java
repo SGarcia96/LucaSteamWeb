@@ -19,4 +19,6 @@ public interface JuegoService {
 	
 	public List<Juego> findAllByFabricante(String fabricante);
 
+	public List<Juego> findAllByGenero(String genero);
+
 }

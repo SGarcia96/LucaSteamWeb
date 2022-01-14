@@ -12,4 +12,7 @@ public interface JuegoDAO extends JpaRepository<Juego, Integer>, JuegoDaoCustom{
 
 	public List<Juego> findAllByFabricante(String fabricante);
 
+
+	public List<Juego> findAllByGenero(String genero);
+
 }
