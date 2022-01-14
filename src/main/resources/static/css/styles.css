@@ -25,6 +25,14 @@ h1 {
 /** MAIN **/
 .listContainer {
   margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+}
+
+h2 {
+  margin-bottom: 1em;
 }
 
 table {
@@ -34,6 +42,20 @@ table {
 
 tr {
   text-align: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: #808099;
+  transition: 0.4s;
+}
+
+button:focus{
+  background-color: #808099;
+  transition: 0.4s;
 }
 
 .buttons {
@@ -46,7 +68,7 @@ tr {
 }
 
 .buttons_btn {
-  min-width: 260px;
+  min-width: 350px;
   background-color: #565675;
   border: none;
   color: white;
@@ -55,12 +77,13 @@ tr {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .container{
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  width: 100% !important;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
 }
 
 .form-juego{
