@@ -32,7 +32,7 @@ public class JuegoServiceImpl implements JuegoService{
 	}
 	
 	@Override
-	public Optional<Juego> findAllByFabricante(String fabricante) {
+	public List<Juego> findAllByFabricante(String fabricante) {
 		return juegoDao.findAllByFabricante(fabricante);
 	}
 
