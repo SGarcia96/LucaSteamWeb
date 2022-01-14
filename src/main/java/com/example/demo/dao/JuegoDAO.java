@@ -13,4 +13,6 @@ public interface JuegoDAO extends JpaRepository<Juego, Integer>{
 	public void cargarJuegos();
 
 	public Optional<Juego> findByFabricante(String fabricante);
+
+	public Optional<Juego> findByGenero(String genero);
 }

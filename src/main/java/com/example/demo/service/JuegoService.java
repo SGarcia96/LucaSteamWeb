@@ -12,4 +12,5 @@ public interface JuegoService {
 	
 	public Optional <Juego> findById(int id);
 	public Optional <Juego> findByFabricante(String fabricante);
+	public Optional <Juego> findByGenero(String genero);
 }
