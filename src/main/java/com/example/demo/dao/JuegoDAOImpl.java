@@ -3,6 +3,9 @@ package com.example.demo.dao;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -17,15 +20,15 @@ public class JuegoDAOImpl implements JuegoDaoCustom{
 	EntityManager entityManager;
 	
 	@Override
-	public void cargarJuegos() {
+	public List<Juego> cargarJuegos() {
 		String linea;
-		String[] juegoArray = new String[5];
-		int cont = 0;
+		String[] juegoArray = new String[6];
+		List<Juego> juegos = new ArrayList<>();
 		
 		try (FileReader fileReader = new FileReader("vgsales.csv");
 				BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+			bufferedReader.readLine();
 			while ((linea = bufferedReader.readLine()) != null) {
-				if (cont > 0) {
 					Juego juego = new Juego();
 					juegoArray = linea.split(",");
 					juego.setNombre(juegoArray[0]);
@@ -37,13 +40,36 @@ public class JuegoDAOImpl implements JuegoDaoCustom{
 					}
 					juego.setGenero(juegoArray[3]);
 					juego.setEditor(juegoArray[4]);
-					//this.darDeAlta(juego);
-
-				}
-				cont++;
+					juego.setEu_sales(Double.parseDouble(juegoArray[5]));
+					juego.setFabricante(dimeFabricante(juego.getPlataforma()));
+					juegos.add(juego);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+		return juegos;
+	}
+	
+	private String dimeFabricante(String plataforma) {
+		switch(plataforma.toUpperCase()) {
+		case "3DO":
+			return "The 3DO Company";
+		case "3DS", "DS", "GB", "GBA", "GC", "N64", "NES", "SNES", "WII", "WIIU":
+			return "Nintendo";
+		case "DC", "GEN", "SAT", "SCD", "GG":
+			return "Sega";
+		case "PCFX", "T16":
+			return "Huson Soft";
+		case "PS", "PS2", "PS3", "PS4", "PSP", "PSV":
+			return "Sony";
+		case "WS":
+			return "Bandai";
+		case "XB", "X360", "XOne":
+			return "Microsoft";
+		case "2600":
+			return "Atari";
+		default:
+			return "N/A";
 		}
 	}
 }

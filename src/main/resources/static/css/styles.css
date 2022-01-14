@@ -1,0 +1,77 @@
+/** GLOBAL **/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+/** HEADER **/
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 38px;
+}
+
+/** MAIN **/
+.listContainer {
+  margin-top: 2em;
+}
+
+table {
+  width: 100%;
+  font-size: 14px;
+}
+
+tr {
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+  
+}
+
+.buttons_btn {
+  min-width: 260px;
+  background-color: #565675;
+  border: none;
+  color: white;
+  padding: 14px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.container{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 100% !important;
+}
+
+.form-juego{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-right: 15%;
+    padding-left: 15%;
+}
+
+input {
+  padding: 8px;
+  width: 100%;
+}
