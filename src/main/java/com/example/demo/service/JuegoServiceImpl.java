@@ -23,7 +23,7 @@ public class JuegoServiceImpl implements JuegoService{
 
 	@Override
 	public void deleteById(int id) {
-			
+		juegoDao.deleteById(id);
 	}
 	
 	@Override

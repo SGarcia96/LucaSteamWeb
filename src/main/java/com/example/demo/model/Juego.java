@@ -8,11 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @Entity
 @ToString
+@NoArgsConstructor
 public class Juego implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -28,10 +30,6 @@ public class Juego implements Serializable{
 	@Getter @Setter private String plataforma;
 	@Getter @Setter private double eu_sales;
 	@Getter @Setter private String fabricante;
-	
-	public Juego() {
-		super();
-	}
 	
 }
 
