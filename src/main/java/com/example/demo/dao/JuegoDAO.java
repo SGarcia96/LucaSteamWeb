@@ -10,6 +10,6 @@ import com.example.demo.model.Juego;
 @Repository
 public interface JuegoDAO extends JpaRepository<Juego, Integer>, JuegoDaoCustom{
 
-	public Optional<Juego> findByFabricante(String fabricante);
+	public Optional<Juego> findAllByFabricante(String fabricante);
 
 }

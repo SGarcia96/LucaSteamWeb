@@ -32,8 +32,8 @@ public class JuegoServiceImpl implements JuegoService{
 	}
 	
 	@Override
-	public Optional<Juego> findByFabricante(String fabricante) {
-		return juegoDao.findByFabricante(fabricante);
+	public Optional<Juego> findAllByFabricante(String fabricante) {
+		return juegoDao.findAllByFabricante(fabricante);
 	}
 
 	@Override
