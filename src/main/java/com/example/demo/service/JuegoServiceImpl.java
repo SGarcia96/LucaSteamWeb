@@ -37,8 +37,8 @@ public class JuegoServiceImpl implements JuegoService{
 	}
 	
 	@Override
-	public Optional<Juego> findByGenero(String genero) {
-		return juegoDao.findByGenero(genero);
+	public List<Juego> findAllByGenero(String genero) {
+		return juegoDao.findAllByGenero(genero);
 	}
 
 	@Override

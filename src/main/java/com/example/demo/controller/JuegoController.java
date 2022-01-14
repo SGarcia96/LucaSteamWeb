@@ -64,11 +64,11 @@ public class JuegoController {
 		return ("index");
 	}
 	
-	@GetMapping("/list")
+	@GetMapping("/list/generoByPlataforma")
 	public String findByGenero(Model m) {
-		m.addAttribute("juegos", juegoService.findByGenero("platform").stream().toList());
-		log.info(juegoService.findByGenero("platform").stream().toList().toString());
+		m.addAttribute("juegos", juegoService.findAllByGenero("platform"));
+		log.info(juegoService.findAllByGenero("Platform").toString());
 		log.info("en el metodo findByGenero del controller");
-		return "list";
+		return "index";
 	}
 }
