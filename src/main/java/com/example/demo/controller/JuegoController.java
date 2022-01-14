@@ -65,9 +65,17 @@ public class JuegoController {
 	}
 	
 	@GetMapping("/list/generoByPlataforma")
-	public String findByGenero(Model m) {
+	public String findByGeneroPlataforma(Model m) {
 		m.addAttribute("juegos", juegoService.findAllByGenero("platform"));
 		log.info(juegoService.findAllByGenero("Platform").toString());
+		log.info("en el metodo findByGenero del controller");
+		return "index";
+	}
+	
+	@PostMapping("/list/genero")
+	public String findByGenero(@RequestParam("genero")String genero, Model m) {
+		m.addAttribute("juegos", juegoService.findAllByGenero(genero));
+		log.info(juegoService.findAllByGenero(genero).toString());
 		log.info("en el metodo findByGenero del controller");
 		return "index";
 	}
