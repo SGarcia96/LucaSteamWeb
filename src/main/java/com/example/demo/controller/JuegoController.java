@@ -20,14 +20,14 @@ public class JuegoController {
 	@Autowired
 	JuegoService juegoService;
 	private static final Logger log = LoggerFactory.getLogger(JuegoController.class);
-	//lista usuarios
+	
 	@GetMapping
 	public String showMenu(Model model) {
 		model.addAttribute("juegos", juegoService.findAll());
 		log.info("en el metodo showMenu del controller");
 		return "index";
 	}
-	//nuevo juego
+	
 	@GetMapping("/add")
 	public String add(Juego juego, Model model) {
 		model.addAttribute("juego", juego);
@@ -80,7 +80,7 @@ public class JuegoController {
 		return "index";
 	}
 	@PostMapping("/list/fecha")
-	public String findByFecha(@RequestParam("fecha")String fecha, Model m) {
+	public String findByFecha(@RequestParam("fecha")int fecha, Model m) {
 		m.addAttribute("juegos", juegoService.findAllByFecha(fecha));
 		log.info(juegoService.findAllByFecha(fecha).toString());
 		log.info("en el metodo findByFecha del controller");

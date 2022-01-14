@@ -41,7 +41,7 @@ public class JuegoServiceImpl implements JuegoService{
 		return juegoDao.findAllByGenero(genero);
 	}
 	@Override
-	public List<Juego> findAllByFecha(String fecha) {
+	public List<Juego> findAllByFecha(int fecha) {
 		return juegoDao.findAllByFecha(fecha);
 	}
 

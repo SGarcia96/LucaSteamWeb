@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>Luca Steam Web</title>
 </head>
 
@@ -19,12 +19,17 @@
             <a class="buttons__item" href="/juego/add"><button class="buttons_btn">Subir juego</button></a>
             <a class="buttons__item" href="/juego/"><button class="buttons_btn">Obtener juegos</button></a>
             <a class="buttons__item" href="/juego/list/nintendo"><button class="buttons_btn">Obtener juegos Nintendo</button></a>
-            <a class="buttons__item" href="/juego/list/genero"><button class="buttons_btn">Obtener juegos por género</button></a>
             <a class="buttons__item" href="/juego/list/generoByPlataforma"><button class="buttons_btn">Obtener juegos de género: plataforma</button></a>
-            <a class="buttons__item" href="/juego/list/fecha"><button class="buttons_btn">Obtener juegos por año</button></a>
-            <form action="">
-                <label for=""></label>
-                <input type="text">
+           
+            <form class="form-juego" method="post" th:action="@{/juego/list/genero}">
+                <label for="genero">Género</label>
+                <input type="text" name="genero" id="genero">
+                <input class="buttons_btn" type="submit" value="Filtar">
+            </form>
+            <form class="form-juego" method="post" th:action="@{/juego/list/fecha}">
+                <label for="fecha">Año</label>
+                <input type="number" name="fecha" id="fecha">
+                <input class="buttons_btn" type="submit" value="Filtrar">
             </form>
         </div>
 

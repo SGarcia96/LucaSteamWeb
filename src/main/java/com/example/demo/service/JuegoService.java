@@ -21,6 +21,6 @@ public interface JuegoService {
 
 	public List<Juego> findAllByGenero(String genero);
 	
-	public List<Juego> findAllByFecha(String fecha);
+	public List<Juego> findAllByFecha(int fecha);
 
 }
