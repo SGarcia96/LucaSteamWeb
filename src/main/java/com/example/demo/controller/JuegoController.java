@@ -79,4 +79,11 @@ public class JuegoController {
 		log.info("en el metodo findByGenero del controller");
 		return "index";
 	}
+	@PostMapping("/list/fecha")
+	public String findByFecha(@RequestParam("fecha")String fecha, Model m) {
+		m.addAttribute("juegos", juegoService.findAllByFecha(fecha));
+		log.info(juegoService.findAllByFecha(fecha).toString());
+		log.info("en el metodo findByFecha del controller");
+		return "index";
+	}
 }
