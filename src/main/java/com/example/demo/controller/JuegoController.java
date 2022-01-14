@@ -45,18 +45,22 @@ public class JuegoController {
 	@GetMapping("/delete")
 	public String deleteUser(@RequestParam("id") int id) {
 		juegoService.deleteById(id);
-		return ("redirect:/");
+		log.info("en el metodo deleteById del controller");
+		return ("redirect:/juego");
 	}
 	
 	@GetMapping("/edit")
 	public String findById(@RequestParam("id") int id, Model m) {
 		m.addAttribute("juego", juegoService.findById(id));
+		log.info("en el metodo findById del controller");
 		return "form";
 	}
 	
 	@GetMapping("/list/nintendo")
 	public String findByFabricante(Model m) {
-		m.addAttribute("lista juegos", juegoService.findByFabricante("Nintendo"));
-		return "list";
+		log.info(juegoService.findAllByFabricante("Nintendo").toString());
+		m.addAttribute("juegos", juegoService.findAllByFabricante("Nintendo"));
+		log.info("en el metodo findByFabricante del controller");
+		return ("index");
 	}
 }

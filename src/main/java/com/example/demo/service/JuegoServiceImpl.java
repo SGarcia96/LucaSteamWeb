@@ -23,7 +23,7 @@ public class JuegoServiceImpl implements JuegoService{
 
 	@Override
 	public void deleteById(int id) {
-			
+		juegoDao.deleteById(id);
 	}
 	
 	@Override
@@ -32,8 +32,8 @@ public class JuegoServiceImpl implements JuegoService{
 	}
 	
 	@Override
-	public Optional<Juego> findByFabricante(String fabricante) {
-		return juegoDao.findByFabricante(fabricante);
+	public List<Juego> findAllByFabricante(String fabricante) {
+		return juegoDao.findAllByFabricante(fabricante);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class JuegoServiceImpl implements JuegoService{
 	@Override
 	public void cargarJuegos() {
 		List<Juego> juegos = juegoDao.cargarJuegos();
-		juegos.forEach(juego->juegoDao.save(juego));
+		juegos.forEach(juego->save(juego));
 	}
 
 }
