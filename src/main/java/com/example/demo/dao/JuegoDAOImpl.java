@@ -25,7 +25,7 @@ public class JuegoDAOImpl implements JuegoDaoCustom{
 		String[] juegoArray = new String[6];
 		List<Juego> juegos = new ArrayList<>();
 		
-		try (FileReader fileReader = new FileReader("vgsales.csv");
+		try (FileReader fileReader = new FileReader("src/main/resources/vgsales.csv");
 				BufferedReader bufferedReader = new BufferedReader(fileReader)) {
 			bufferedReader.readLine();
 			while ((linea = bufferedReader.readLine()) != null) {
@@ -47,6 +47,7 @@ public class JuegoDAOImpl implements JuegoDaoCustom{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		System.out.println();
 		return juegos;
 	}
 	

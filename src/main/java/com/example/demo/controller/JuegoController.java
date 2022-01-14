@@ -58,9 +58,10 @@ public class JuegoController {
 	
 	@GetMapping("/list/nintendo")
 	public String findByFabricante(Model m) {
-		m.addAttribute("lista juegos", juegoService.findByFabricante("Nintendo"));
+		log.info(juegoService.findAllByFabricante("Nintendo").toString());
+		m.addAttribute("juegos", juegoService.findAllByFabricante("Nintendo"));
 		log.info("en el metodo findByFabricante del controller");
-		return "list";
+		return ("index");
 	}
 	
 	@GetMapping("/list")
