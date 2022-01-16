@@ -14,46 +14,111 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  margin-top: 1em;
   margin-bottom: 2em;
 }
 
-h1 {
-  margin-top: 20px;
-  font-size: 38px;
+.header__title {
+  font-size: 54px;
+  font-weight: 300;
+}
+
+.text-blue {
+  color: #808099;
+}
+
+.text-edit {
+  color: rgb(28, 104, 204);
+}
+
+.text-red {
+  color: rgb(204, 28, 28);
 }
 
 /** MAIN **/
+.form-juego {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-right: 15%;
+  padding-left: 15%;
+}
+
+input:invalid {
+  border: 1px solid red;
+}
+
+input:valid {
+  border: 1px solid green;
+}
+
+#formSubmit {
+  min-width: 200px;
+}
+
+.list-emptymsg {
+  text-align: center;
+  font-size: 18px;
+  padding-top: 1em;
+  font-style: italic;
+}
+
+input {
+  padding: 8px;
+  width: 100%;
+}
+
 .listContainer {
   margin-top: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 h2 {
-  margin-bottom: 1em;
-}
-
-table {
-  width: 100%;
-  font-size: 14px;
-}
-
-tr {
+  margin-top: 2em;
+  font-size: 32px;
+  font-weight: 400;
   text-align: center;
 }
 
-button {
-  cursor: pointer;
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-button:hover{
+th,
+td {
+  text-align: center;
+  padding: 4px;
+}
+
+th {
+  color: #808099;
+  background-color: rgba(139, 143, 167, 0.1.2);
+  text-transform: capitalize;
+}
+
+td > a {
+  text-decoration: none;
+}
+
+.buttons_btn {
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.buttons_btn:hover {
   background-color: #808099;
   transition: 0.4s;
 }
 
-button:focus{
+.buttons_btn:focus {
   background-color: #808099;
   transition: 0.4s;
 }
@@ -64,7 +129,6 @@ button:focus{
   align-items: center;
   gap: 10px;
   flex-direction: column;
-  
 }
 
 .buttons_btn {
@@ -80,21 +144,30 @@ button:focus{
   cursor: pointer;
 }
 
-.container{
-  padding-left: 0;
-  padding-right: 0;
-  width: 100%;
+.cPointer {
+  cursor: pointer;
 }
 
-.form-juego{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding-right: 15%;
-    padding-left: 15%;
+.cPointer:hover {
+  opacity: 0.6;
+  transition: opacity 0.3s;
 }
 
-input {
-  padding: 8px;
-  width: 100%;
+/** MEDIA QUERIES **/
+@media only screen and (min-width: 768px) {
+  .header__title {
+    font-size: 86px;
+  }
+
+  .buttons_btn {
+    min-width: 450px;
+  }
+
+  h2 {
+    font-size: 44px;
+  }
+
+  table {
+    width: 80%;
+  }
 }

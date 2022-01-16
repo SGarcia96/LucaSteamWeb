@@ -1,72 +1,92 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Luca Steam</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css">
-    <title>Luca Steam Web</title>
-</head>
-
-<body>
+  <body>
     <header id="header">
-        <h1>LUCA STEAM WEB</h1>
+      <h1 class="header__title">LUCA <span class="text-blue">STEAM</span></h1>
     </header>
 
     <main id="container">
-        <div class="buttons">
-            <a class="buttons__item" href="/juego/add"><button class="buttons_btn">Subir juego</button></a>
-            <a class="buttons__item" href="/juego/"><button class="buttons_btn">Obtener juegos</button></a>
-            <a class="buttons__item" href="/juego/list/nintendo"><button class="buttons_btn">Obtener juegos Nintendo</button></a>
-            <a class="buttons__item" href="/juego/list/generoByPlataforma"><button class="buttons_btn">Obtener juegos de género: plataforma</button></a>
-           
-            <form class="form-juego" method="post" th:action="@{/juego/list/genero}">
-                <label for="genero">Género</label>
-                <input type="text" name="genero" id="genero" placeholder="Inserte género a buscar">
-                <input class="buttons_btn" type="submit" value="Filtar">
-            </form>
-            <form class="form-juego" method="post" th:action="@{/juego/list/fecha}">
-                <label for="fecha">Año</label>
-                <input type="number" name="fecha" id="fecha" placeholder="Inserte año a buscar">
-                <input class="buttons_btn" type="submit" value="Filtrar">
-            </form>
-        </div>
+      <div class="buttons">
+        <a class="buttons__item" href="/juego/add">
+          <button class="buttons_btn">Subir juego</button>
+        </a>
+        <a class="buttons__item" href="/juego/">
+          <button class="buttons_btn">Obtener juegos</button>
+        </a>
+        <a class="buttons__item" href="/juego/list/nintendo">
+          <button class="buttons_btn">Obtener juegos Nintendo</button>
+        </a>
+        <a class="buttons__item" href="/juego/list/generoByPlataforma">
+          <button class="buttons_btn">Obtener juegos de género: plataforma</button>
+        </a>
 
-        
-       <div class="listContainer" style="overflow-x:auto;">
-            <h2>Lista de Juegos</h2>
-            <table> 
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Fecha</th>
-                        <th>Editor</th>
-                        <th>Género</th>
-                        <th>Plataforma</th>
-                        <th>Ventas en EU</th>
-                        <th>Fabricante</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:if="${juegos.empty}">
-                        <td colspan="6">No Hay Juegos de verdad que no hay</td>
-                    </tr>
-                    <tr th:each="juego, status : ${juegos}">
-                        <td><span th:text="${juego.nombre}"> </span></td>
-                        <td><span th:text="${juego.fecha}"> </span></td>
-                        <td><span th:text="${juego.editor}"> </span></td>
-                        <td><span th:text="${juego.genero}"> </span></td>
-                        <td><span th:text="${juego.plataforma}"> </span></td>
-                        <td><span th:text="${juego.eu_sales}"> </span></td>
-                        <td><span th:text="${juego.fabricante}"> </span></td>
-                        <td><a th:href="@{/juego/edit(id=${juego.id})}">Editar</a> | <a
-					    th:href="@{/juego/delete(id=${juego.id})}">Eliminar</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <form class="form-juego" method="post" th:action="@{/juego/list/genero}">
+          <label for="genero">Género</label>
+          <input
+            type="text"
+            name="genero"
+            id="genero"
+            placeholder="Inserte género a buscar (ej: Sports)"
+          />
+          <input class="buttons_btn" type="submit" value="Filtar" />
+        </form>
+        <form class="form-juego" method="post" th:action="@{/juego/list/fecha}">
+          <label for="fecha">Año</label>
+          <input
+            type="number"
+            name="fecha"
+            id="fecha"
+            placeholder="Inserte año a buscar (ej: 1996)"
+            min="0"
+            value="0"
+            required
+          />
+          <input class="buttons_btn" type="submit" value="Filtrar" />
+        </form>
+      </div>
+
+      <h2 class="text-blue">Lista de Juegos</h2>
+      <div class="listContainer" style="overflow-x: auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Fecha</th>
+              <th>Editor</th>
+              <th>Género</th>
+              <th>Plataforma</th>
+              <th>Ventas EU</th>
+              <th>Fabricante</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:if="${juegos.empty}">
+              <td class="list-emptymsg" colspan="7">No hay juegos</td>
+            </tr>
+            <tr th:each="juego, status : ${juegos}">
+              <td><span th:text="${juego.nombre}"></span></td>
+              <td><span th:text="${juego.fecha}"></span></td>
+              <td><span th:text="${juego.editor}"></span></td>
+              <td><span th:text="${juego.genero}"></span></td>
+              <td><span th:text="${juego.plataforma}"></span></td>
+              <td><span th:text="${juego.eu_sales}"></span></td>
+              <td><span th:text="${juego.fabricante}"></span></td>
+              <td>
+                <a class="text-edit cPointer" th:href="@{/juego/edit(id=${juego.id})}">Editar</a> |
+                <a class="text-red cPointer" th:href="@{/juego/delete(id=${juego.id})}">Eliminar</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </main>
-</body>
-
+  </body>
 </html>
