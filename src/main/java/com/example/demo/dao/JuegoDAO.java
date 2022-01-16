@@ -8,12 +8,12 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.model.Juego;
 
 @Repository
-public interface JuegoDAO extends JpaRepository<Juego, Integer>, JuegoDaoCustom{
+public interface JuegoDAO extends JpaRepository<Juego, Integer>, JuegoDaoCustom {
 
 	public List<Juego> findAllByFabricante(String fabricante);
 
-
 	public List<Juego> findAllByGenero(String genero);
+	
 	public List<Juego> findAllByFecha(int fecha);
 
 }
