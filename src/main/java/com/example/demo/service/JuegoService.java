@@ -26,6 +26,7 @@ public interface JuegoService {
 	public List<String> findAllEditores();
 
 	public List<Juego> findAllByFechaPair();
-
+	
+	public List<Juego> findAllByEuSalesOverAverage();
 
 }
