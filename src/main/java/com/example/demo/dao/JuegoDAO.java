@@ -3,6 +3,7 @@ package com.example.demo.dao;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Juego;
@@ -16,6 +17,10 @@ public interface JuegoDAO extends JpaRepository<Juego, Integer>, JuegoDaoCustom 
 	
 	public List<Juego> findAllByFecha(int fecha);
 	
+
 	public List<String> findAllEditores();
+
+	@Query(value="SELECT * FROM juego WHERE fecha % 2 = 0", nativeQuery=true)
+	public List<Juego> findAllByFechaPair();
 
 }

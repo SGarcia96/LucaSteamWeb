@@ -61,4 +61,9 @@ public class JuegoServiceImpl implements JuegoService{
 		return juegoDao.findAllEditores();
 	}
 
+	@Override
+	public List<Juego> findAllByFechaPair() {
+		return juegoDao.findAllByFechaPair();
+	}
+
 }

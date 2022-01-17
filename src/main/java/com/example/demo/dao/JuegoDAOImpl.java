@@ -73,6 +73,5 @@ public class JuegoDAOImpl implements JuegoDaoCustom{
 			return "N/A";
 		}
 	}
-
-	public List
+	
 }

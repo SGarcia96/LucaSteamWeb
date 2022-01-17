@@ -22,7 +22,10 @@ public interface JuegoService {
 	public List<Juego> findAllByGenero(String genero);
 	
 	public List<Juego> findAllByFecha(int fecha);
-	
+
 	public List<String> findAllEditores();
+
+	public List<Juego> findAllByFechaPair();
+
 
 }
