@@ -1,0 +1,173 @@
+/** GLOBAL **/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+/** HEADER **/
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.header__title {
+  font-size: 54px;
+  font-weight: 300;
+}
+
+.text-blue {
+  color: #808099;
+}
+
+.text-edit {
+  color: rgb(28, 104, 204);
+}
+
+.text-red {
+  color: rgb(204, 28, 28);
+}
+
+/** MAIN **/
+.form-juego {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-right: 15%;
+  padding-left: 15%;
+}
+
+input:invalid {
+  border: 1px solid red;
+}
+
+input:valid {
+  border: 1px solid green;
+}
+
+#formSubmit {
+  min-width: 200px;
+}
+
+.list-emptymsg {
+  text-align: center;
+  font-size: 18px;
+  padding-top: 1em;
+  font-style: italic;
+}
+
+input {
+  padding: 8px;
+  width: 100%;
+}
+
+.listContainer {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  margin-top: 2em;
+  font-size: 32px;
+  font-weight: 400;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 4px;
+}
+
+th {
+  color: #808099;
+  background-color: rgba(139, 143, 167, 0.1.2);
+  text-transform: capitalize;
+}
+
+td > a {
+  text-decoration: none;
+}
+
+.buttons_btn {
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.buttons_btn:hover {
+  background-color: #808099;
+  transition: 0.4s;
+}
+
+.buttons_btn:focus {
+  background-color: #808099;
+  transition: 0.4s;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.buttons_btn {
+  min-width: 350px;
+  background-color: #565675;
+  border: none;
+  color: white;
+  padding: 14px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cPointer {
+  cursor: pointer;
+}
+
+.cPointer:hover {
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+/** MEDIA QUERIES **/
+@media only screen and (min-width: 768px) {
+  .header__title {
+    font-size: 86px;
+  }
+
+  .buttons_btn {
+    min-width: 450px;
+  }
+
+  h2 {
+    font-size: 44px;
+  }
+
+  table {
+    width: 80%;
+  }
+}

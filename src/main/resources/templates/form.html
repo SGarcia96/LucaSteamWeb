@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Form Juego</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+
+  <body>
+    <header id="header">
+      <h1 class="header__title">Form Juego</h1>
+    </header>
+
+    <main id="container">
+      <form class="form-juego" method="post" th:object="${juego}" th:action="@{/juego/save}">
+        <input id="id" th:field="*{id}" type="hidden" />
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" th:field="*{nombre}" required/>
+        <label for="fecha">Año de lanzamiento:</label>
+        <input type="number" th:field="*{fecha}" min="0" required/>
+        <label for="genero">Género:</label>
+        <input type="text" th:field="*{genero}"  required/>
+        <label for="editor">Editor:</label>
+        <input type="text" th:field="*{editor}"  required/>
+        <label for="plataforma">Plataforma:</label>
+        <input type="text" th:field="*{plataforma}"  required/>
+        <label for="eu_sales">Ventas en EU:</label>
+        <input type="text" th:field="*{eu_sales}" required/>
+        <label for="fabricante">Fabricante:</label>
+        <input type="text" th:field="*{fabricante}"  required/>
+        <input id="formSubmit" class="buttons_btn" type="submit" value="Guardar Registro" />
+      </form>
+    </main>
+  </body>
+</html>
