@@ -57,8 +57,13 @@ public class JuegoServiceImpl implements JuegoService{
 	}
 	
 	@Override
-	public List<Juego> findAllByEuSalesOverAverage(int fecha) {
-		return juegoDao.findAllByEuSalesOverAverage(fecha);
+	public List<Juego> findAllByEuSalesOverAverage() {
+		return juegoDao.findAllByEuSalesOverAverage();
+	}
+
+	@Override
+	public List<Juego> findAllByFechaPair() {
+		return juegoDao.findAllByFechaPair();
 	}
 
 }

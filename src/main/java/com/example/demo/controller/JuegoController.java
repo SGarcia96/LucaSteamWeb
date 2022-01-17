@@ -23,7 +23,7 @@ public class JuegoController {
 	
 	@GetMapping
 	public String showMenu(Model model) {
-		model.addAttribute("juegos", juegoService.findAll());
+		model.addAttribute("juegos", juegoService.findAll()); // list = findAll().stream().filter(x -> x.getFECHA() == %2 0)
 		log.info("en el metodo showMenu del controller");
 		return "index";
 	}
@@ -79,6 +79,7 @@ public class JuegoController {
 		log.info("en el metodo findByGenero del controller");
 		return "index";
 	}
+	
 	@PostMapping("/list/fecha")
 	public String findByFecha(@RequestParam("fecha")int fecha, Model m) {
 		m.addAttribute("juegos", juegoService.findAllByFecha(fecha));
@@ -87,11 +88,21 @@ public class JuegoController {
 		return "index";
 	}
 	
-	@PostMapping("/list/fecha")
-	public String findAllByEuSalesOverAverage(@RequestParam("fecha")int fecha, Model m) {
-		m.addAttribute("juegos", juegoService.findAllByEuSalesOverAverage(fecha));
-		log.info(juegoService.findAllByEuSalesOverAverage(fecha).toString());
+
+	@GetMapping("/list/salesOverAverage")
+	public String findAllByEuSalesOverAverage (Model m) {
+		m.addAttribute("juegos", juegoService.findAllByEuSalesOverAverage());
+		log.info(juegoService.findAllByEuSalesOverAverage().toString());
 		log.info("en el metodo findAllByEuSalesOverAverage del controller");
+		return "index";
+		
+	}
+
+	@GetMapping("/list/fechasPares")
+	public String findByFechaPar(Model m) {
+		m.addAttribute("juegos", juegoService.findAllByFechaPair());
+		log.info(juegoService.findAllByFechaPair().toString());
+		log.info("en el metodo findAllByFechaPair del controller");
 		return "index";
 	}
 }

@@ -22,7 +22,9 @@ public interface JuegoService {
 	public List<Juego> findAllByGenero(String genero);
 	
 	public List<Juego> findAllByFecha(int fecha);
+	
+	public List<Juego> findAllByFechaPair();
 
-	public List<Juego> findAllByEuSalesOverAverage(int fecha);
+	public List<Juego> findAllByEuSalesOverAverage();
 
 }
