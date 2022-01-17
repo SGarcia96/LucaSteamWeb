@@ -56,4 +56,9 @@ public class JuegoServiceImpl implements JuegoService{
 		juegos.forEach(juego->save(juego));
 	}
 
+	@Override
+	public List<Juego> findAllByFechaPair() {
+		return juegoDao.findAllByFechaPair();
+	}
+
 }
