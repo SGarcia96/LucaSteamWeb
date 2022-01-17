@@ -17,14 +17,8 @@ import com.example.demo.service.JuegoService;
 @RequestMapping("/juego")
 public class JuegoController {
 	
-	//@Autowired
-	private JuegoService juegoService;
-	
 	@Autowired
-	public JuegoController(JuegoService juegoService) {
-		this.juegoService = juegoService;
-	}
-	
+	private JuegoService juegoService;
 	private static final Logger log = LoggerFactory.getLogger(JuegoController.class);
 	
 	@GetMapping
