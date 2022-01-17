@@ -18,7 +18,7 @@ import com.example.demo.service.JuegoService;
 public class JuegoController {
 	
 	@Autowired
-	private JuegoService juegoService;
+	JuegoService juegoService;
 	private static final Logger log = LoggerFactory.getLogger(JuegoController.class);
 	
 	@GetMapping
