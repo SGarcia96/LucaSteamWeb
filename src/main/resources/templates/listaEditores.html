@@ -1,43 +1,40 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Lista editores</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
 
-<head>
-  <title>Lista editores</title>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/styles.css" />
-</head>
+  <body>
+    <header id="header">
+      <h1 class="header__title">LUCA <span class="text-blue">STEAM</span></h1>
+    </header>
 
-<body>
-  <header id="header">
-    <h1 class="header__title">LUCA <span class="text-blue">STEAM</span></h1>
-  </header>
-  
-  <main id="container">
-    <h2 class="text-blue">Lista de Juegos</h2>
-    <div class="listContainer" id="listEditores" style="overflow-x: auto">
-      <table id="listEditores">
-        <thead>
-          <tr>
-            <th>Editor</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr th:if="${editores.empty}">
-            <td class="list-emptymsg" colspan="7">No hay editores</td>
-          </tr>
-          <tr th:each="editor, status : ${editores}">
-            <td><span th:text="${editor}"></span></td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-    <div class="buttons">
-      <a class="buttons__item buttons_btn" href="/juego/">Obtener juegos</a>
-    </div>
-  </main>
-</body>
-
+    <main id="container">
+      <div class="buttons">
+        <a class="buttons__item buttons_btn" href="/juego/">Obtener juegos</a>
+      </div>
+      <h2 class="text-blue">Lista de Juegos</h2>
+      <div class="listContainer" id="listEditores" style="overflow-x: auto">
+        <table id="listEditores">
+          <thead>
+            <tr>
+              <th>Editor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:if="${editores.empty}">
+              <td class="list-emptymsg" colspan="7">No hay editores</td>
+            </tr>
+            <tr th:each="editor, status : ${editores}">
+              <td><span th:text="${editor}"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
 </html>
