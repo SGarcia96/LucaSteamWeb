@@ -12,13 +12,23 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Juego;
-
+/**
+ * descripcion de la clase
+ * blablablabla
+ * 
+ * @author Steven Garcia, Eva Montiel, Jose Manuel, Gabriel Marchante, Juan Antonio Rodriguez
+ * @version 1.0
+ */
 @Repository
 public class JuegoDAOImpl implements JuegoDaoCustom{
 
 	@PersistenceContext
 	EntityManager entityManager;
 	
+	/**
+	 * método para cargar los datos del csv proporcionado a la base de datos
+	 * @return lista de juegos
+	 */
 	@Override
 	public List<Juego> cargarJuegos() {
 		String linea;
@@ -51,6 +61,11 @@ public class JuegoDAOImpl implements JuegoDaoCustom{
 		return juegos;
 	}
 	
+	/**
+	 * método que devuelve las distintas plataformas de un juego
+	 * @param plataforma
+	 * @return plataforma
+	 */
 	private String dimeFabricante(String plataforma) {
 		switch(plataforma.toUpperCase()) {
 		case "3DO":
