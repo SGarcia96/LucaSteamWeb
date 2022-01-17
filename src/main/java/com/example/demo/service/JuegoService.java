@@ -23,4 +23,6 @@ public interface JuegoService {
 	
 	public List<Juego> findAllByFecha(int fecha);
 
+	public List<Juego> findAllByEuSalesOverAverage(int fecha);
+
 }

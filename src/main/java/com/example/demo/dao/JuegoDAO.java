@@ -15,5 +15,7 @@ public interface JuegoDAO extends JpaRepository<Juego, Integer>, JuegoDaoCustom 
 	public List<Juego> findAllByGenero(String genero);
 	
 	public List<Juego> findAllByFecha(int fecha);
+	
+	public List<Juego> findAllByEuSalesOverAverage(int fecha);
 
 }

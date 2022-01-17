@@ -86,4 +86,12 @@ public class JuegoController {
 		log.info("en el metodo findByFecha del controller");
 		return "index";
 	}
+	
+	@PostMapping("/list/fecha")
+	public String findAllByEuSalesOverAverage(@RequestParam("fecha")int fecha, Model m) {
+		m.addAttribute("juegos", juegoService.findAllByEuSalesOverAverage(fecha));
+		log.info(juegoService.findAllByEuSalesOverAverage(fecha).toString());
+		log.info("en el metodo findAllByEuSalesOverAverage del controller");
+		return "index";
+	}
 }
