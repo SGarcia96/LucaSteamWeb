@@ -13,8 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Juego;
 /**
- * descripcion de la clase
- * blablablabla
+ * Implementación de la interfaz JuegoDaoCustom
  * 
  * @author Steven Garcia, Eva Montiel, Jose Manuel, Gabriel Marchante, Juan Antonio Rodriguez
  * @version 1.0
@@ -26,7 +25,7 @@ public class JuegoDAOImpl implements JuegoDaoCustom{
 	EntityManager entityManager;
 	
 	/**
-	 * método para cargar los datos del csv proporcionado a la base de datos
+	 * Método para cargar los datos del csv proporcionado a la base de datos
 	 * @return lista de juegos
 	 */
 	@Override
@@ -62,9 +61,9 @@ public class JuegoDAOImpl implements JuegoDaoCustom{
 	}
 	
 	/**
-	 * método que devuelve las distintas plataformas de un juego
+	 * Método que devuelve el fabricante de una plataforma dada
 	 * @param plataforma
-	 * @return plataforma
+	 * @return fabricante
 	 */
 	private String dimeFabricante(String plataforma) {
 		switch(plataforma.toUpperCase()) {
