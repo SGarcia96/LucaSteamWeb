@@ -12,20 +12,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.model.Juego;
 import com.example.demo.service.JuegoService;
+
 /**
- * Clase controladora que dirige a los distintos archivos HTML cuando es necesario
- * @author Steven Garcia, Eva Montiel, Jose Manuel, Gabriel Marchante, Juan Antonio Rodriguez
+ * Clase controladora que dirige a los distintos archivos HTML cuando es
+ * necesario
+ * 
+ * @author Steven Garcia, Eva Montiel, Jose Manuel, Gabriel Marchante, Juan
+ *         Antonio Rodriguez
  *
  */
 @Controller
 @RequestMapping("/juego")
 public class JuegoController {
-	
+
 	@Autowired
-	JuegoService juegoService;
+	private JuegoService juegoService;
 	private static final Logger log = LoggerFactory.getLogger(JuegoController.class);
+
 	/**
-	 * Método que redirige al archivo index.html mostrando las opciones disponibles en la página 
+	 * Método que redirige al archivo index.html mostrando las opciones disponibles
+	 * en la página
+	 * 
 	 * @param model
 	 * @return index
 	 */
@@ -35,8 +42,10 @@ public class JuegoController {
 		log.info("en el metodo showMenu del controller");
 		return "index";
 	}
+
 	/**
 	 * Método que redirige al formulario para añadir un juego
+	 * 
 	 * @param juego
 	 * @param model
 	 * @return form
@@ -47,8 +56,10 @@ public class JuegoController {
 		log.info("en el metodo add del controller");
 		return "form";
 	}
+
 	/**
 	 * Método que guarda la información de un juego en la base de datos
+	 * 
 	 * @param juego
 	 * @return redirect:/juego
 	 */
@@ -58,8 +69,10 @@ public class JuegoController {
 		log.info("en el metodo save del controller");
 		return ("redirect:/juego");
 	}
+
 	/**
 	 * Método que elimina un juego dado de la base de datos
+	 * 
 	 * @param id
 	 * @return redirect:/juego
 	 */
@@ -69,8 +82,11 @@ public class JuegoController {
 		log.info("en el metodo deleteById del controller");
 		return ("redirect:/juego");
 	}
+
 	/**
-	 * Método para encontrar un juego que coincida con un id dado y redirige a un formulario para editar ese juego
+	 * Método para encontrar un juego que coincida con un id dado y redirige a un
+	 * formulario para editar ese juego
+	 * 
 	 * @param id
 	 * @param m
 	 * @return form
@@ -81,8 +97,11 @@ public class JuegoController {
 		log.info("en el metodo findById del controller");
 		return "form";
 	}
+
 	/**
-	 * Método que dado un fabricante proporciona los juegos para las plataformas de dicho fabricante, en este caso Nintendo
+	 * Método que dado un fabricante proporciona los juegos para las plataformas de
+	 * dicho fabricante, en este caso Nintendo
+	 * 
 	 * @param m
 	 * @return index
 	 */
@@ -93,8 +112,11 @@ public class JuegoController {
 		log.info("en el metodo findByFabricante del controller");
 		return ("index");
 	}
+
 	/**
-	 * Método que proporciona los juegos que pertenecen a un genero dado, en este caso plataforma (platform)
+	 * Método que proporciona los juegos que pertenecen a un genero dado, en este
+	 * caso plataforma (platform)
+	 * 
 	 * @param m
 	 * @return index
 	 */
@@ -105,46 +127,56 @@ public class JuegoController {
 		log.info("en el metodo findByGeneroPlataforma del controller");
 		return "index";
 	}
+
 	/**
 	 * Método que proporciona los juegos que pertenecen a un genero dado
+	 * 
 	 * @param genero
 	 * @param m
 	 * @return index
 	 */
 	@PostMapping("/list/genero")
-	public String findByGenero(@RequestParam("genero")String genero, Model m) {
+	public String findByGenero(@RequestParam("genero") String genero, Model m) {
 		m.addAttribute("juegos", juegoService.findAllByGenero(genero));
 		log.info(juegoService.findAllByGenero(genero).toString());
 		log.info("en el metodo findByGenero del controller");
 		return "index";
 	}
+
 	/**
 	 * Método que proporciona los juegos pertenecientes a un año dado
+	 * 
 	 * @param fecha
 	 * @param m
 	 * @return
 	 */
 	@PostMapping("/list/fecha")
-	public String findByFecha(@RequestParam("fecha")int fecha, Model m) {
+	public String findByFecha(@RequestParam("fecha") int fecha, Model m) {
 		m.addAttribute("juegos", juegoService.findAllByFecha(fecha));
 		log.info(juegoService.findAllByFecha(fecha).toString());
 		log.info("en el metodo findByFecha del controller");
 		return "index";
 	}
+
 	/**
-	 * Método que proporciona todos los juegos cuyas ventas en Europa sean superiores a la media de las ventas en Europa
+	 * Método que proporciona todos los juegos cuyas ventas en Europa sean
+	 * superiores a la media de las ventas en Europa
+	 * 
 	 * @param m
 	 * @return index
 	 */
 	@GetMapping("/list/salesOverAverage")
-	public String findAllByEuSalesOverAverage (Model m) {
+	public String findAllByEuSalesOverAverage(Model m) {
 		m.addAttribute("juegos", juegoService.findAllByEuSalesOverAverage());
 		log.info(juegoService.findAllByEuSalesOverAverage().toString());
 		log.info("en el metodo findAllByEuSalesOverAverage del controller");
 		return "index";
 	}
+
 	/**
-	 * Método que proporciona la lista de los distintos editores que aparecen en la base de datos
+	 * Método que proporciona la lista de los distintos editores que aparecen en la
+	 * base de datos
+	 * 
 	 * @param m
 	 * @return listaEditores
 	 */
@@ -156,8 +188,10 @@ public class JuegoController {
 		return "listaEditores";
 
 	}
+
 	/**
 	 * Método que proporciona todos los juegos cuya fecha de salida sea un año par
+	 * 
 	 * @param m
 	 * @return
 	 */

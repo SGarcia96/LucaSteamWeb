@@ -12,20 +12,23 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Juego;
+
 /**
  * Implementación de la interfaz JuegoDaoCustom
  * 
- * @author Steven Garcia, Eva Montiel, Jose Manuel, Gabriel Marchante, Juan Antonio Rodriguez
+ * @author Steven Garcia, Eva Montiel, Jose Manuel, Gabriel Marchante, Juan
+ *         Antonio Rodriguez
  * @version 1.0
  */
 @Repository
-public class JuegoDAOImpl implements JuegoDaoCustom{
+public class JuegoDAOImpl implements JuegoDaoCustom {
 
 	@PersistenceContext
 	EntityManager entityManager;
-	
+
 	/**
 	 * Método para cargar los datos del csv proporcionado a la base de datos
+	 * 
 	 * @return lista de juegos
 	 */
 	@Override
@@ -33,25 +36,25 @@ public class JuegoDAOImpl implements JuegoDaoCustom{
 		String linea;
 		String[] juegoArray = new String[6];
 		List<Juego> juegos = new ArrayList<>();
-		
+
 		try (FileReader fileReader = new FileReader("src/main/resources/vgsales.csv");
 				BufferedReader bufferedReader = new BufferedReader(fileReader)) {
 			bufferedReader.readLine();
 			while ((linea = bufferedReader.readLine()) != null) {
-					Juego juego = new Juego();
-					juegoArray = linea.split(",");
-					juego.setNombre(juegoArray[0]);
-					juego.setPlataforma(juegoArray[1]);
-					try {
-						juego.setFecha(Integer.parseInt(juegoArray[2]));
-					} catch (NumberFormatException e) {
-						System.out.println("No se ha insertado un numero");
-					}
-					juego.setGenero(juegoArray[3]);
-					juego.setEditor(juegoArray[4]);
-					juego.setEu_sales(Double.parseDouble(juegoArray[5]));
-					juego.setFabricante(dimeFabricante(juego.getPlataforma()));
-					juegos.add(juego);
+				Juego juego = new Juego();
+				juegoArray = linea.split(",");
+				juego.setNombre(juegoArray[0]);
+				juego.setPlataforma(juegoArray[1]);
+				try {
+					juego.setFecha(Integer.parseInt(juegoArray[2]));
+				} catch (NumberFormatException e) {
+					System.out.println("No se ha insertado un numero");
+				}
+				juego.setGenero(juegoArray[3]);
+				juego.setEditor(juegoArray[4]);
+				juego.setEu_sales(Double.parseDouble(juegoArray[5]));
+				juego.setFabricante(dimeFabricante(juego.getPlataforma()));
+				juegos.add(juego);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -59,14 +62,15 @@ public class JuegoDAOImpl implements JuegoDaoCustom{
 		System.out.println();
 		return juegos;
 	}
-	
+
 	/**
 	 * Método que devuelve el fabricante de una plataforma dada
+	 * 
 	 * @param plataforma
 	 * @return fabricante
 	 */
 	private String dimeFabricante(String plataforma) {
-		switch(plataforma.toUpperCase()) {
+		switch (plataforma.toUpperCase()) {
 		case "3DO":
 			return "The 3DO Company";
 		case "3DS", "DS", "GB", "GBA", "GC", "N64", "NES", "SNES", "WII", "WIIU":
@@ -87,5 +91,5 @@ public class JuegoDAOImpl implements JuegoDaoCustom{
 			return "N/A";
 		}
 	}
-	
+
 }

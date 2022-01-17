@@ -20,6 +20,7 @@ public interface JuegoService {
 	 */
 
 	public Juego save(Juego juego);
+
 	
 	/**
 	 * Método que borra los juegos por su ID
@@ -64,13 +65,13 @@ public interface JuegoService {
 	 */
 
 	public List<Juego> findAllByGenero(String genero);
-	
+
 	/**
 	 * Método para buscar juegos por el año de publicación
 	 * @param fecha
 	 * @return
 	 */
-	
+
 	public List<Juego> findAllByFecha(int fecha);
 	
 	/**
@@ -86,7 +87,7 @@ public interface JuegoService {
 	 */
 
 	public List<Juego> findAllByFechaPair();
-	
+
 	/**
 	 * Método para filtrar juegos con recaudación por encima de la media europea
 	 * @return

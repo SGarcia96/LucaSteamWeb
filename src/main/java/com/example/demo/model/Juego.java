@@ -11,7 +11,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
+/**
+ * Clase entidad de juego, mapeada a una entidad para MySql
+ * 
+ * @author Steven Garcia, Eva Montiel, Jose Manuel, Gabriel Marchante, Juan Antonio Rodriguez
+ * @version 1.0
+ */
 @Entity
 @ToString
 @NoArgsConstructor
