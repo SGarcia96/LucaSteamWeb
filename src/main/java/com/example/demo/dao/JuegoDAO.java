@@ -17,8 +17,13 @@ public interface JuegoDAO extends JpaRepository<Juego, Integer>, JuegoDaoCustom 
 	
 	public List<Juego> findAllByFecha(int fecha);
 	
+
 	@Query(value="SELECT * FROM juego WHERE eu_sales > (select avg(eu_sales) from juego)", nativeQuery=true)
 	public List<Juego> findAllByEuSalesOverAverage();
+
+	@Query(value="SELECT DISTINCT editor FROM juego WHERE editor NOT LIKE '0' ORDER BY editor;", nativeQuery=true)
+	public List<String> findAllEditores();
+
 
 	@Query(value="SELECT * FROM juego WHERE fecha % 2 = 0", nativeQuery=true)
 	public List<Juego> findAllByFechaPair();
