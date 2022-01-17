@@ -88,6 +88,25 @@ public class JuegoController {
 		return "index";
 	}
 	
+
+
+	@GetMapping("/list/salesOverAverage")
+	public String findAllByEuSalesOverAverage (Model m) {
+		m.addAttribute("juegos", juegoService.findAllByEuSalesOverAverage());
+		log.info(juegoService.findAllByEuSalesOverAverage().toString());
+		log.info("en el metodo findAllByEuSalesOverAverage del controller");
+		return "index";
+	}
+
+	@GetMapping("/list/editores")
+	public String findAllEditores(Model m) {
+		m.addAttribute("editores", juegoService.findAllEditores());
+		log.info(juegoService.findAllEditores().toString());
+		log.info("en el metodo findAllEditores del controller");
+		return "listaEditores";
+
+	}
+
 	@GetMapping("/list/fechasPares")
 	public String findByFechaPar(Model m) {
 		m.addAttribute("juegos", juegoService.findAllByFechaPair());

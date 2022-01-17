@@ -55,6 +55,16 @@ public class JuegoServiceImpl implements JuegoService{
 		List<Juego> juegos = juegoDao.cargarJuegos();
 		juegos.forEach(juego->save(juego));
 	}
+	
+	@Override
+	public List<Juego> findAllByEuSalesOverAverage() {
+		return juegoDao.findAllByEuSalesOverAverage();
+	}
+	@Override
+	public List<String> findAllEditores(){
+		return juegoDao.findAllEditores();
+
+	}
 
 	@Override
 	public List<Juego> findAllByFechaPair() {
