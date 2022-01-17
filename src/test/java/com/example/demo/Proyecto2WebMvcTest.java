@@ -66,7 +66,7 @@ public class Proyecto2WebMvcTest {
 		System.out.println("====================Prueba get(/juego/delete)=========================");
 		mockMvc.perform(get("/juego/delete?id=1"))
 			   .andDo(print())
-			   .andExpect(status().isOk());
+			   .andExpect(status().is(302));
 	}
 	
 	@Test
