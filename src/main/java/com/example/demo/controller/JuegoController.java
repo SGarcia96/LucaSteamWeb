@@ -12,7 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.model.Juego;
 import com.example.demo.service.JuegoService;
-
+/**
+ * 
+ * @author alumno
+ *
+ */
 @Controller
 @RequestMapping("/juego")
 public class JuegoController {
