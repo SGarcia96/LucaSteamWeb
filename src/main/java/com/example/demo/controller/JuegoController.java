@@ -86,4 +86,12 @@ public class JuegoController {
 		log.info("en el metodo findByFecha del controller");
 		return "index";
 	}
+	
+	@GetMapping("/list/editores")
+	public String findAllEditores(Model m) {
+		m.addAttribute("editores", juegoService.findAllEditores());
+		log.info(juegoService.findAllEditores().toString());
+		log.info("en el metodo findAllEditores del controller");
+		return "listaEditores";
+	}
 }

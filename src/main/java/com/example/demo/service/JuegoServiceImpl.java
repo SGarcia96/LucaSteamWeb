@@ -55,5 +55,10 @@ public class JuegoServiceImpl implements JuegoService{
 		List<Juego> juegos = juegoDao.cargarJuegos();
 		juegos.forEach(juego->save(juego));
 	}
+	
+	@Override
+	public List<String> findAllEditores(){
+		return juegoDao.findAllEditores();
+	}
 
 }
